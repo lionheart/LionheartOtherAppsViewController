@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07A54A08D1BB5C2FF437B532 /* LionheartOtherAppsViewController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = LionheartOtherAppsViewController.podspec; path = ../LionheartOtherAppsViewController.podspec; sourceTree = "<group>"; };
+		07A54A08D1BB5C2FF437B532 /* LionheartOtherAppsViewController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LionheartOtherAppsViewController.podspec; path = ../LionheartOtherAppsViewController.podspec; sourceTree = "<group>"; };
 		2BEC9FF061CF13A2CCF8CEC9 /* Pods_LionheartOtherAppsViewController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LionheartOtherAppsViewController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F195B2A204EA49BEE053F65 /* Pods-LionheartOtherAppsViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LionheartOtherAppsViewController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LionheartOtherAppsViewController_Example/Pods-LionheartOtherAppsViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LionheartOtherAppsViewController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionheartOtherAppsViewController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,10 +41,10 @@
 		607FACE51AFB9204008FA782 /* LionheartOtherAppsViewController_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LionheartOtherAppsViewController_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6B003F22FF0DA8FB5B436BE0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		6B003F22FF0DA8FB5B436BE0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6C775A1F409540E3AB280F68 /* Pods-LionheartOtherAppsViewController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LionheartOtherAppsViewController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LionheartOtherAppsViewController_Example/Pods-LionheartOtherAppsViewController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8F9F390BB72135D706A2F876 /* Pods-LionheartOtherAppsViewController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LionheartOtherAppsViewController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LionheartOtherAppsViewController_Tests/Pods-LionheartOtherAppsViewController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		A8D6C820E4DB36D82AA9BE7A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A8D6C820E4DB36D82AA9BE7A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BE447F517E7CC4B88AE1753E /* Pods-LionheartOtherAppsViewController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LionheartOtherAppsViewController_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LionheartOtherAppsViewController_Tests/Pods-LionheartOtherAppsViewController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C79003692E048BD1F152BACD /* Pods_LionheartOtherAppsViewController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LionheartOtherAppsViewController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -215,11 +215,14 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 63553QQ62F;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 63553QQ62F;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -328,11 +331,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LionheartOtherAppsViewController_Example/Pods-LionheartOtherAppsViewController_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KeyboardAdjuster/KeyboardAdjuster.framework",
 				"${BUILT_PRODUCTS_DIR}/LionheartOtherAppsViewController/LionheartOtherAppsViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/QuickTableView/QuickTableView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyboardAdjuster.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LionheartOtherAppsViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickTableView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -461,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -501,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -514,6 +523,7 @@
 			baseConfigurationReference = 6C775A1F409540E3AB280F68 /* Pods-LionheartOtherAppsViewController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 63553QQ62F;
 				INFOPLIST_FILE = LionheartOtherAppsViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -528,6 +538,7 @@
 			baseConfigurationReference = 5F195B2A204EA49BEE053F65 /* Pods-LionheartOtherAppsViewController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 63553QQ62F;
 				INFOPLIST_FILE = LionheartOtherAppsViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -541,6 +552,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F9F390BB72135D706A2F876 /* Pods-LionheartOtherAppsViewController_Tests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 63553QQ62F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -553,6 +566,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -561,6 +575,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE447F517E7CC4B88AE1753E /* Pods-LionheartOtherAppsViewController_Tests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 63553QQ62F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -569,6 +585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
