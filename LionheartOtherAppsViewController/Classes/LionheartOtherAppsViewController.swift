@@ -142,7 +142,7 @@ public final class LionheartOtherAppsViewController: BaseTableViewController {
                 return
             }
 
-            self.apps = results.flatMap({ App(payload: $0, affiliateCode: self.affiliateCode) }).sorted(by: { $0.0.name > $0.1.name })
+            self.apps = results.flatMap({ App(payload: $0, affiliateCode: self.affiliateCode) }).sorted(by: { $0.0.name < $0.1.name })
 
             DispatchQueue.main.async {
                 self.activity.stopAnimating()
