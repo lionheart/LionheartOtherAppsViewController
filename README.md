@@ -1,6 +1,5 @@
 # LionheartOtherAppsViewController
 
-[![CI Status](http://img.shields.io/travis/lionheart/LionheartOtherAppsViewController.svg?style=flat)](https://travis-ci.org/lionheart/LionheartOtherAppsViewController)
 [![Version](https://img.shields.io/cocoapods/v/LionheartOtherAppsViewController.svg?style=flat)](http://cocoapods.org/pods/LionheartOtherAppsViewController)
 [![License](https://img.shields.io/cocoapods/l/LionheartOtherAppsViewController.svg?style=flat)](http://cocoapods.org/pods/LionheartOtherAppsViewController)
 [![Platform](https://img.shields.io/cocoapods/p/LionheartOtherAppsViewController.svg?style=flat)](http://cocoapods.org/pods/LionheartOtherAppsViewController)
