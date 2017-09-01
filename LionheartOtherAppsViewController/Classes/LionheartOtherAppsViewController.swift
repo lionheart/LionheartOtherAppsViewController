@@ -185,11 +185,11 @@ extension LionheartOtherAppsViewController: UITableViewDataSource {
         cell.textLabel?.text = app.name
         cell.detailTextLabel?.text = app.detailText
         cell.accessoryView = nil
-
-        if let url = app.imageURL {
-            cell.imageView?.sd_setImage(with: url, completed: nil)
+        cell.imageView?.sd_setImage(with: app.imageURL) { (image, error, _, _) in
+            self.tableView.beginUpdates()
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self.tableView.endUpdates()
         }
-
         return cell
     }
 }
