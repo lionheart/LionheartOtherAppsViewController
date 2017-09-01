@@ -18,68 +18,140 @@
 import QuickTableView
 import SDWebImage
 
-final class LionheartOtherAppsViewController: BaseTableViewController {
-    var developerID: String!
-    var developerURL: URL? {
-        return URL(string: "https://itunes.apple.com/lookup?id=\(developerID)&entity=software")
+fileprivate struct App {
+    var affiliateCode: String?
+    var name: String
+    var rating: Decimal?
+    var numberOfRatings: Int?
+    var imageURLString: String?
+    var imageURL: URL? {
+        guard let urlString = imageURLString else {
+            return nil
+        }
+
+        return URL(string: urlString)
     }
 
-    var apps: [[String: String]] = []
+    var urlString: String?
+    var url: URL? {
+        guard var urlString = urlString else {
+            return nil
+        }
+
+        if let affiliateCode = affiliateCode {
+            urlString += "&at=\(affiliateCode)"
+        }
+
+        return URL(string: urlString)
+    }
+
+    var starString: String? {
+        guard let rating = rating else {
+            return nil
+        }
+
+        var value = ""
+        let starRating = NSDecimalNumber(decimal: rating)
+
+        for i in 0..<5 {
+            if starRating.intValue - i > 0 {
+                value += "★"
+            } else {
+                value += "☆"
+            }
+        }
+
+        return value
+    }
+
+    var detailText: String {
+        guard let numberOfRatings = numberOfRatings,
+            let starString = starString else {
+                return "No reviews"
+        }
+
+        let plural: String
+        if numberOfRatings == 1 {
+            plural = ""
+        } else {
+            plural = "s"
+        }
+
+        return "\(starString) \(numberOfRatings) review\(plural)"
+    }
+
+    init?(payload: [String: Any], affiliateCode: String?) {
+        guard let appNameString = payload["trackName"] as? String,
+            let appName = appNameString.components(separatedBy: "-").first else {
+                return nil
+        }
+
+        name = appName
+        rating = (payload["averageUserRating"] as? NSNumber)?.decimalValue
+        numberOfRatings = payload["userRatingCount"] as? Int
+        imageURLString = payload["artworkUrl60"] as? String
+        urlString = payload["trackViewUrl"] as? String
+    }
+}
+
+public final class LionheartOtherAppsViewController: BaseTableViewController {
+    var developerID = 0
+    var affiliateCode: String?
+    var developerURL: URL {
+        return URL(string: "https://itunes.apple.com/lookup?id=\(developerID)&entity=software")!
+    }
+    fileprivate var apps: [App] = []
 
     let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
-    init(developerID: String) {
+    public init(developerID: Int, affiliateCode: String? = nil) {
         super.init(style: .grouped)
+
+        self.developerID = developerID
+        self.affiliateCode = affiliateCode
     }
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Our Apps"
 
         activity.hidesWhenStopped = true
+
+        tableView.registerClass(QuickTableViewCellSubtitle.self)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         activity.startAnimating()
 
-        guard let url = developerURL else {
-            return
-        }
-
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: developerURL) { (data, response, error) in
             guard let data = data,
                 let object = try? JSONSerialization.jsonObject(with: data, options: []),
                 let payload = object as? [String: Any],
-                let results = payload["results"] as? [[String: String]] else {
+                let results = payload["results"] as? [[String: Any]] else {
                 return
             }
 
-            for app in results {
-                guard app["trackName"] != nil else {
-                    continue
-                }
-
-                self.apps.append(app)
-            }
+            self.apps = results.flatMap({ App(payload: $0, affiliateCode: self.affiliateCode) }).sorted(by: { $0.0.name > $0.1.name })
 
             DispatchQueue.main.async {
                 self.activity.stopAnimating()
                 self.tableView.reloadData()
             }
         }
+
+        task.resume()
     }
 }
 
 extension LionheartOtherAppsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        guard let urlString = apps[indexPath.row]["trackViewUrl"],
-            let url = URL(string: urlString) else {
-                return
+        guard let url = apps[indexPath.row].url else {
+            return
         }
 
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -87,54 +159,32 @@ extension LionheartOtherAppsViewController: UITableViewDelegate {
 }
 
 extension LionheartOtherAppsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if apps.count > 0 {
-            return apps.count
-        } else {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard apps.count > 0 else {
             return 1
         }
+
+        return apps.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as QuickTableViewCellSubtitle
-        if apps.count > 0 {
-            let app = apps[indexPath.row]
-            guard let appName = app["trackName"]?.components(separatedBy: "-").first,
-                let imageURLString = app["artworkUrl60"] else {
-                    return cell
-            }
 
-            let ratingCount = app["userRatingCount"] ?? "0"
-            var starString = ""
-
-            if let currentRating = app["averageUserRating"],
-                let decimal = Decimal(string: currentRating) {
-                    let starRating = NSDecimalNumber(decimal: decimal)
-
-                for i in 0..<5 {
-                    if starRating.intValue - i > 0 {
-                        starString += "★"
-                    } else {
-                        starString += "☆"
-                    }
-                }
-            }
-
-            let plural: String
-            if ratingCount == "1" {
-                plural = ""
-            } else {
-                plural = "s"
-            }
-
-            cell.textLabel?.text = appName
-            cell.detailTextLabel?.text = "\(starString) \(ratingCount) review\(plural)"
-            cell.imageView?.sd_setImage(with: URL(string: imageURLString), completed: nil)
-
-        } else {
+        guard apps.count > 0 else {
             cell.textLabel?.text = "Loading"
             cell.accessoryView = activity
+            return cell
         }
+
+        let app = apps[indexPath.row]
+        cell.textLabel?.text = app.name
+        cell.detailTextLabel?.text = app.detailText
+        cell.accessoryView = nil
+
+        if let url = app.imageURL {
+            cell.imageView?.sd_setImage(with: url, completed: nil)
+        }
+
         return cell
     }
 }
