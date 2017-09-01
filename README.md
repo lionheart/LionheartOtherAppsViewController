@@ -10,7 +10,7 @@ This is an easy way for you to show your users the other apps that you have deve
 
 ## Usage
 
-Integrating LionheartOtherAppsViewController into your project is straightforward. You just need to instantiate the view controller and present it!
+Just instantiate the view controller and present it!
 
 ```swift
 let controller = LionheartOtherAppsViewController(developerID=548052593)
