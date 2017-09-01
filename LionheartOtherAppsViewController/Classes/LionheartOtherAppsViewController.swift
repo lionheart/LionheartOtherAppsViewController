@@ -86,6 +86,7 @@ fileprivate struct App {
                 return nil
         }
 
+        self.affiliateCode = affiliateCode
         name = appName
         rating = (payload["averageUserRating"] as? NSNumber)?.decimalValue
         numberOfRatings = payload["userRatingCount"] as? Int

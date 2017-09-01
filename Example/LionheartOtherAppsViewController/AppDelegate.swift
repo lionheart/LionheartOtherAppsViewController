@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let controller = LionheartOtherAppsViewController(developerID: 548052593)
+        let controller = LionheartOtherAppsViewController(developerID: 548052593, affiliateCode: "123")
         let navigation = UINavigationController(rootViewController: controller)
         let _window = UIWindow(frame: UIScreen.main.bounds)
         _window.rootViewController = navigation
