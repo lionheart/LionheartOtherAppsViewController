@@ -14,16 +14,7 @@ This is an easy way for you to show your users the other apps that you have deve
 
 ## Usage
 
-Integrating LHSOtherAppsViewController into your project is pretty straightforward. You just need to instantiate the view controller, set the developerURL, and present it.
-
-#### Note:
-### Necessary import for LHSOtherAppsViewController
-
-```swift
-@import LionheartOtherAppsViewController
-```
-
-### Implementation
+Integrating LionheartOtherAppsViewController into your project is straightforward. You just need to instantiate the view controller and present it!
 
 ```swift
 let controller = LionheartOtherAppsViewController(developerID=548052593)
@@ -35,10 +26,10 @@ You can find out your Developer ID by going to the app store and clicking "More 
 
 ## Installation
 
-LHSOtherAppsViewController is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+LionheartOtherAppsViewController is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod "LHSOtherAppsViewController"
+pod "LionheartOtherAppsViewController"
 ```
 
 ## License
