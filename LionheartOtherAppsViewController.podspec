@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.version          =  "1.0.0"
   s.summary          = 'A table view controller used to showcase your other apps.'
 
-  s.homepage         = 'https://github.com/dlo/LionheartOtherAppsViewController'
+  s.homepage         = 'https://github.com/lionheart/LionheartOtherAppsViewController'
   s.license          = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.author           = { 'Dan Loewenherz' => 'dan@lionheartsw.com' }
   s.source           = { :git => 'https://github.com/lionheart/LionheartOtherAppsViewController.git', :tag => s.version.to_s }
