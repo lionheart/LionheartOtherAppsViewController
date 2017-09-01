@@ -18,7 +18,7 @@ let controller = LionheartOtherAppsViewController(developerID=548052593)
 
 #### Note:
 
-You can find out your Developer ID by going to the app store and clicking "More By This Developer". Your id will be at the end of that url.
+You can find out your Developer ID by going to the App Store and clicking "More By This Developer". Your ID will be at the end of that url.
 
 ## Installation
 
