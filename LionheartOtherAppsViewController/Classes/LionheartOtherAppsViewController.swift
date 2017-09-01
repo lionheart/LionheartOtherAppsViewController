@@ -105,6 +105,13 @@ public final class LionheartOtherAppsViewController: BaseTableViewController {
 
     let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
+    lazy var placeholder: UIImage? = {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 44, height: 44), false, 1.0)
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return result
+    }()
+
     public init(developerID: Int, affiliateCode: String? = nil) {
         super.init(style: .grouped)
 
@@ -185,11 +192,7 @@ extension LionheartOtherAppsViewController: UITableViewDataSource {
         cell.textLabel?.text = app.name
         cell.detailTextLabel?.text = app.detailText
         cell.accessoryView = nil
-        cell.imageView?.sd_setImage(with: app.imageURL) { (image, error, _, _) in
-            self.tableView.beginUpdates()
-            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.tableView.endUpdates()
-        }
+        cell.imageView?.sd_setImage(with: app.imageURL, placeholderImage: placeholder)
         return cell
     }
 }
