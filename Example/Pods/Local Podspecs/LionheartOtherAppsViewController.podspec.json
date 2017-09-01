@@ -1,22 +1,22 @@
 {
   "name": "LionheartOtherAppsViewController",
-  "version": "0.1.0",
-  "summary": "A short description of LionheartOtherAppsViewController.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "1.0.0",
+  "summary": "A table view controller used to showcase your other apps.",
   "homepage": "https://github.com/dlo/LionheartOtherAppsViewController",
   "license": {
-    "type": "MIT",
+    "type": "Apache 2.0",
     "file": "LICENSE"
   },
   "authors": {
-    "dlo": "dan@lionheartsw.com"
+    "Dan Loewenherz": "dan@lionheartsw.com"
   },
   "source": {
-    "git": "https://github.com/dlo/LionheartOtherAppsViewController.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/lionheart/LionheartOtherAppsViewController.git",
+    "tag": "1.0.0"
   },
+  "social_media_url": "https://twitter.com/lionheartsw",
   "platforms": {
-    "ios": "10.3"
+    "ios": "9.3"
   },
   "source_files": "LionheartOtherAppsViewController/Classes/**/*",
   "dependencies": {
