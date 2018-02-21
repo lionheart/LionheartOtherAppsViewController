@@ -4,30 +4,29 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - KeyboardAdjuster (1.4.1)
-  - LionheartOtherAppsViewController (1.0.0):
-    - QuickTableView (~> 2.3)
+  - KeyboardAdjuster (3.0.2)
+  - LionheartOtherAppsViewController (1.0.3):
+    - QuickTableView (~> 2.6)
     - SDWebImage
-  - Nimble (5.1.1)
-  - Nimble-Snapshots (4.4.0):
-    - Nimble-Snapshots/Core (= 4.4.0)
-  - Nimble-Snapshots/Core (4.4.0):
+  - Nimble (7.0.3)
+  - Nimble-Snapshots (6.3.0):
+    - Nimble-Snapshots/Core (= 6.3.0)
+  - Nimble-Snapshots/Core (6.3.0):
     - FBSnapshotTestCase (~> 2.0)
-    - Nimble
-    - Quick
-  - Quick (1.0.0)
-  - QuickTableView (2.3.2):
-    - KeyboardAdjuster (~> 1.4)
-  - SDWebImage (4.1.0):
-    - SDWebImage/Core (= 4.1.0)
-  - SDWebImage/Core (4.1.0)
+    - Nimble (~> 7.0)
+  - Quick (1.2.0)
+  - QuickTableView (2.6.0):
+    - KeyboardAdjuster (~> 3)
+  - SDWebImage (4.3.0):
+    - SDWebImage/Core (= 4.3.0)
+  - SDWebImage/Core (4.3.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
   - LionheartOtherAppsViewController (from `../`)
-  - Nimble (~> 5.1.1)
+  - Nimble (~> 7)
   - Nimble-Snapshots
-  - Quick (~> 1.0.0)
+  - Quick (~> 1)
 
 EXTERNAL SOURCES:
   LionheartOtherAppsViewController:
@@ -35,14 +34,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  KeyboardAdjuster: 666736e102cee8e4a6aa45264077cff4383a4baf
-  LionheartOtherAppsViewController: 1e3e6c0717b48f4d054939ab8f7e7c046b04a020
-  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
-  Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
-  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
-  QuickTableView: aaeea9aa7009577265abbb3a9dd1ea29bd9c40a0
-  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  KeyboardAdjuster: 8391eadd333fefaacaf110c9dfcbb07a2f6b3404
+  LionheartOtherAppsViewController: 968733ed0519f625d6669ce383a7764569d7d402
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  QuickTableView: 284a0085bec96a9fc8ca6062c924cce19c1c351e
+  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
 
-PODFILE CHECKSUM: 089fc5eab41837d0af19675b6fa5d091bc7398d2
+PODFILE CHECKSUM: 52d48b89da6e28b51704e18d550f50100e9590dc
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0
