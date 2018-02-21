@@ -16,34 +16,97 @@
 
 import UIKit
 
-public protocol KeyboardAdjuster: class {
-    var keyboardAdjusterConstraint: NSLayoutConstraint? { get set }
-    var keyboardAdjusterAnimated: Bool? { get set }
+public protocol KeyboardAdjusterOptions {
+    var animateKeyboardTransition: Bool { get }
+    func keyboardWillHideHandler()
+    func keyboardWillShowHandler()
 }
 
-private extension UIViewController {
+public class KeyboardLayoutGuide: UILayoutGuide {
+    fileprivate var willHideBlockObserver: NSObjectProtocol?
+    fileprivate var willShowBlockObserver: NSObjectProtocol?
+    fileprivate var constraint: NSLayoutConstraint!
+
+    init(view: UIView) {
+        super.init()
+        
+        identifier = "KeyboardLayoutGuide"
+        
+        view.addLayoutGuide(self)
+
+        leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        constraint = topAnchor.constraint(equalTo: view.bottomAnchor)
+        constraint.isActive = true
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    deinit {
+        // See https://useyourloaf.com/blog/unregistering-nsnotificationcenter-observers-in-ios-9/
+        let center = NotificationCenter.default
+        if let willShowBlockObserver = willShowBlockObserver {
+            center.removeObserver(willShowBlockObserver)
+        }
+        
+        if let willHideBlockObserver = willHideBlockObserver {
+            center.removeObserver(willHideBlockObserver)
+        }
+    }
+}
+
+extension UIViewController {
+    public var keyboardLayoutGuide: KeyboardLayoutGuide {
+        guard let guide = view.layoutGuides.first(where: { $0 is KeyboardLayoutGuide }) as? KeyboardLayoutGuide else {
+            return makeKeyboardLayoutGuide()
+        }
+        
+        return guide
+    }
+
+    private func makeKeyboardLayoutGuide() -> KeyboardLayoutGuide {
+        let guide = KeyboardLayoutGuide(view: view)
+        
+        let center = NotificationCenter.default
+        let queue = OperationQueue.main
+        guide.willHideBlockObserver = center.addObserver(forName: .UIKeyboardWillHide, object: nil, queue: queue, using: { [weak self] notification in
+            (self as? KeyboardAdjusterOptions)?.keyboardWillHideHandler()
+
+            self?.keyboardWillChangeAppearance(notification, toState: .hidden)
+        })
+        
+        guide.willShowBlockObserver = center.addObserver(forName: .UIKeyboardWillShow, object: nil, queue: queue, using: { [weak self] notification in
+            (self as? KeyboardAdjusterOptions)?.keyboardWillShowHandler()
+
+            self?.keyboardWillChangeAppearance(notification, toState: .visible)
+        })
+        
+        return guide
+    }
+    
     enum KeyboardState {
         case hidden
         case visible
     }
 
     private func keyboardWillChangeAppearance(_ sender: Notification, toState: KeyboardState) {
-        guard let conformingSelf = self as? KeyboardAdjuster,
-            let constraint = conformingSelf.keyboardAdjusterConstraint,
-            let userInfo = (sender as NSNotification).userInfo as? [String: AnyObject],
+        guard let userInfo = sender.userInfo,
             let _curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int,
             let curve = UIViewAnimationCurve(rawValue: _curve),
             let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double else {
                 return
         }
 
-        var curveAnimationOption: UIViewAnimationOptions
+        let curveAnimationOption: UIViewAnimationOptions
         switch curve {
         case .easeIn:
             curveAnimationOption = .curveEaseIn
 
         case .easeInOut:
-            curveAnimationOption = UIViewAnimationOptions()
+            curveAnimationOption = []
 
         case .easeOut:
             curveAnimationOption = .curveEaseOut
@@ -54,7 +117,7 @@ private extension UIViewController {
 
         switch toState {
         case .hidden:
-            constraint.constant = 0
+            keyboardLayoutGuide.constraint.constant = 0
 
         case .visible:
             guard let value = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
@@ -63,107 +126,16 @@ private extension UIViewController {
             }
 
             let frame = value.cgRectValue
-            let keyboardFrameInViewCoordinates = view.convert(frame, from: nil)
-            constraint.constant = view.bounds.height - keyboardFrameInViewCoordinates.origin.y
+            keyboardLayoutGuide.constraint.constant = -frame.height
         }
 
-        let animated = conformingSelf.keyboardAdjusterAnimated ?? false
-        if animated {
-            let animationOptions: UIViewAnimationOptions = [UIViewAnimationOptions.beginFromCurrentState, curveAnimationOption]
-            UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: self.view.layoutIfNeeded, completion:nil)
+        if (self as? KeyboardAdjusterOptions)?.animateKeyboardTransition ?? true {
+            let animationOptions: UIViewAnimationOptions = [.beginFromCurrentState, curveAnimationOption]
+            UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: {
+                self.view.layoutIfNeeded()
+            })
         } else {
             view.layoutIfNeeded()
         }
-    }
-
-    /**
-     A callback that manages the bottom constraint when the keyboard is about to be hidden.
-
-     - parameter sender: An `NSNotification` containing a `Dictionary` with information regarding the keyboard appearance.
-     - author: Daniel Loewenherz
-     - copyright: ©2016 Lionheart Software LLC
-     - date: February 18, 2016
-     */
-    @objc func keyboardWillHide(_ sender: Notification) {
-        keyboardWillChangeAppearance(sender, toState: .hidden)
-    }
-
-    /**
-     A callback that manages the bottom constraint before the keyboard is shown.
-
-     - parameter sender: An `NSNotification` containing a `Dictionary` with information regarding the keyboard appearance.
-     - author: Daniel Loewenherz
-     - copyright: ©2016 Lionheart Software LLC
-     - date: February 18, 2016
-     */
-    @objc func keyboardWillShow(_ sender: Notification) {
-        keyboardWillChangeAppearance(sender, toState: .visible)
-    }
-}
-
-extension KeyboardAdjuster where Self: UIViewController {
-    /**
-     Activates keyboard adjustment for the calling view controller.
-
-     - seealso: `activateKeyboardAdjuster(showBlock:hideBlock:)`
-     - author: Daniel Loewenherz
-     - copyright: ©2016 Lionheart Software LLC
-     - date: February 18, 2016
-     */
-    public func activateKeyboardAdjuster() {
-        activateKeyboardAdjuster(nil, hideBlock: nil)
-    }
-
-    /**
-     Enable keyboard adjustment for the current view controller, providing optional closures to call when the keyboard appears and when it disappears.
-     
-     - parameter showBlock: (optional) a closure that's called when the keyboard appears
-     - parameter hideBlock: (optional) a closure that's called when the keyboard disappears
-     - author: Daniel Loewenherz
-     - copyright: ©2016 Lionheart Software LLC
-     - date: February 18, 2016
-     */
-    public func activateKeyboardAdjuster(_ showBlock: (()->())?, hideBlock: (()->())?) {
-        // Activate the bottom constraint.
-        keyboardAdjusterConstraint?.isActive = true
-
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: OperationQueue.main, using: {
-            [weak self] notification in
-            
-            self?.keyboardWillHide(notification)
-            
-            hideBlock?()
-        })
-        
-        notificationCenter.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main, using: {
-            [weak self] notification in
-            
-            self?.keyboardWillShow(notification)
-            
-            showBlock?()
-        })
-
-        guard let viewA = keyboardAdjusterConstraint?.firstItem as? UIView,
-            let viewB = keyboardAdjusterConstraint?.secondItem as? UIView else {
-                return
-        }
-
-        if viewB.subviews.contains(viewA) {
-            assertionFailure("Please reverse the order of arguments in your keyboard Adjuster constraint.")
-        }
-    }
-    
-    /**
-     Call this in your `viewWillDisappear` method for your `UIViewController`. This method removes any active keyboard observers from your view controller.
-
-     - author: Daniel Loewenherz
-     - copyright: ©2016 Lionheart Software LLC
-     - date: February 18, 2016
-     */
-    public func deactivateKeyboardAdjuster() {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        notificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
     }
 }

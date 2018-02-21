@@ -25,13 +25,11 @@ import UIKit
  - copyright: ©2016 Lionheart Software LLC
  - date: April 12, 2016
  */
-open class BaseTableViewController: UIViewController, KeyboardAdjuster, HasTableView {
-    open var keyboardAdjusterConstraint: NSLayoutConstraint?
+open class BaseTableViewController: UIViewController, HasTableView {
     open var tableViewTopConstraint: NSLayoutConstraint!
     open var tableViewLeftConstraint: NSLayoutConstraint!
     open var tableViewRightConstraint: NSLayoutConstraint!
 
-    open var keyboardAdjusterAnimated: Bool? = false
     open var tableView: UITableView!
 
     public init(style: UITableViewStyle = .grouped) {
@@ -44,21 +42,20 @@ open class BaseTableViewController: UIViewController, KeyboardAdjuster, HasTable
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self as? UITableViewDelegate
         tableView.dataSource = self as? UITableViewDataSource
+
+        if #available(iOS 11, *) {
+            // Handle odd content inset adjustment animation on iOS 11
+            tableView.contentInsetAdjustmentBehavior = .never
+        } else {
+            // iOS 11 and below need to have auto-layout specified manually
+            tableView.estimatedRowHeight = 44
+            tableView.rowHeight = UITableViewAutomaticDimension
+        }
     }
 
     @available(*, unavailable)
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        activateKeyboardAdjuster()
-    }
-
-    override open func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        deactivateKeyboardAdjuster()
+        super.init(coder: aDecoder)
     }
 
     override open func viewDidLoad() {
@@ -73,15 +70,16 @@ open class BaseTableViewController: UIViewController, KeyboardAdjuster, HasTable
         tableViewLeftConstraint.isActive = true
         tableViewTopConstraint.isActive = true
         tableViewRightConstraint.isActive = true
-        keyboardAdjusterConstraint = view.bottomAnchor.constraint(equalTo: tableView.bottomAnchor)
+        tableView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(greaterThanOrEqualTo: keyboardLayoutGuide.topAnchor).isActive = true
     }
 
     // MARK: -
-    open func leftBarButtonItemDidTouchUpInside(_ sender: AnyObject?) {
+    @objc open func leftBarButtonItemDidTouchUpInside(_ sender: AnyObject?) {
         parent?.dismiss(animated: true, completion: nil)
     }
 
-    open func rightBarButtonItemDidTouchUpInside(_ sender: AnyObject?) {
+    @objc open func rightBarButtonItemDidTouchUpInside(_ sender: AnyObject?) {
         parent?.dismiss(animated: true, completion: nil)
     }
 
