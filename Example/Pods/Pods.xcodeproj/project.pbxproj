@@ -2026,11 +2026,10 @@
 			};
 			name = Debug;
 		};
-		1AB00F389CA0B35BF984A7396F552E63 /* Release */ = {
+		2A7248CC7A6A0094B6CDBDBBD4FB2413 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EA1655644BCE79F7E21044AECB932C1 /* LionheartOtherAppsViewController.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2043,7 +2042,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/LionheartOtherAppsViewController/LionheartOtherAppsViewController-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/LionheartOtherAppsViewController/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/LionheartOtherAppsViewController/LionheartOtherAppsViewController.modulemap";
 				PRODUCT_NAME = LionheartOtherAppsViewController;
@@ -2058,38 +2057,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		2102DFA996D5B402A5BC513C8B0FF274 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EA1655644BCE79F7E21044AECB932C1 /* LionheartOtherAppsViewController.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LionheartOtherAppsViewController/LionheartOtherAppsViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LionheartOtherAppsViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LionheartOtherAppsViewController/LionheartOtherAppsViewController.modulemap";
-				PRODUCT_NAME = LionheartOtherAppsViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		3D539288686AD8297B1B2FFB4D41D27C /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2692,6 +2659,37 @@
 			};
 			name = Release;
 		};
+		F179FB259439C44A5B964B294AE48752 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EA1655644BCE79F7E21044AECB932C1 /* LionheartOtherAppsViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LionheartOtherAppsViewController/LionheartOtherAppsViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LionheartOtherAppsViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LionheartOtherAppsViewController/LionheartOtherAppsViewController.modulemap";
+				PRODUCT_NAME = LionheartOtherAppsViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2743,8 +2741,8 @@
 		A4E829B357CED7277ADA91401790482F /* Build configuration list for PBXNativeTarget "LionheartOtherAppsViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2102DFA996D5B402A5BC513C8B0FF274 /* Debug */,
-				1AB00F389CA0B35BF984A7396F552E63 /* Release */,
+				F179FB259439C44A5B964B294AE48752 /* Debug */,
+				2A7248CC7A6A0094B6CDBDBBD4FB2413 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
