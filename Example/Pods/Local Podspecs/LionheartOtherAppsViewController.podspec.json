@@ -1,6 +1,6 @@
 {
   "name": "LionheartOtherAppsViewController",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "summary": "A table view controller used to showcase your other apps.",
   "homepage": "https://github.com/lionheart/LionheartOtherAppsViewController",
   "license": {
@@ -12,11 +12,11 @@
   },
   "source": {
     "git": "https://github.com/lionheart/LionheartOtherAppsViewController.git",
-    "tag": "1.0.3"
+    "tag": "1.0.4"
   },
   "social_media_url": "https://twitter.com/lionheartsw",
   "platforms": {
-    "ios": "9.3"
+    "ios": "10.3"
   },
   "source_files": "LionheartOtherAppsViewController/Classes/**/*",
   "dependencies": {
