@@ -180,7 +180,7 @@ extension LionheartOtherAppsViewController: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as QuickTableViewCellSubtitle
+        let cell = tableView.dequeueReusableCell(for: indexPath) as QuickTableViewCellSubtitle
 
         guard apps.count > 0 else {
             cell.textLabel?.text = "Loading"
