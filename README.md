@@ -1,4 +1,5 @@
-# LionheartOtherAppsViewController
+![](meta/repo-banner.png)
+[![](meta/repo-banner-bottom.png)][lionheart-url]
 
 [![Version](https://img.shields.io/cocoapods/v/LionheartOtherAppsViewController.svg?style=flat)](http://cocoapods.org/pods/LionheartOtherAppsViewController)
 [![License](https://img.shields.io/cocoapods/l/LionheartOtherAppsViewController.svg?style=flat)](http://cocoapods.org/pods/LionheartOtherAppsViewController)
@@ -28,4 +29,5 @@ pod "LionheartOtherAppsViewController"
 
 LionheartExtensions is available under the Apache 2.0 license. See the [LICENSE](LICENSE) file for more info.
 
+[lionheart-url]: https://lionheartsw.com/
 
