@@ -5,7 +5,7 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - KeyboardAdjuster (3.0.2)
-  - LionheartOtherAppsViewController (1.0.4):
+  - LionheartOtherAppsViewController (1.1.0):
     - QuickTableView (~> 2.6)
     - SDWebImage
   - Nimble (7.0.3)
@@ -15,11 +15,11 @@ PODS:
     - FBSnapshotTestCase (~> 2.0)
     - Nimble (~> 7.0)
   - Quick (1.2.0)
-  - QuickTableView (2.6.0):
+  - QuickTableView (2.6.2):
     - KeyboardAdjuster (~> 3)
-  - SDWebImage (4.3.0):
-    - SDWebImage/Core (= 4.3.0)
-  - SDWebImage/Core (4.3.0)
+  - SDWebImage (4.3.2):
+    - SDWebImage/Core (= 4.3.2)
+  - SDWebImage/Core (4.3.2)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -35,12 +35,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   KeyboardAdjuster: 8391eadd333fefaacaf110c9dfcbb07a2f6b3404
-  LionheartOtherAppsViewController: 48305f852158c1cd9dd3e23a65930046cc7ec804
+  LionheartOtherAppsViewController: 073edb156f42163a4a26bb0bfcbd8ffe43e2dfaf
   Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
   Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
-  QuickTableView: 284a0085bec96a9fc8ca6062c924cce19c1c351e
-  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
+  QuickTableView: 6c7689b1b392e8d4d01c26161ca0c3b7a2079435
+  SDWebImage: 29bd3c0bc1f01e5eb59720847c64ad4c4ca1af5d
 
 PODFILE CHECKSUM: 4a523cf3631a8c874606964e9af6815393e5bfa0
 
