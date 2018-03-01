@@ -79,7 +79,7 @@ struct App {
         name = appName
         rating = (payload["averageUserRating"] as? NSNumber)?.decimalValue
         numberOfRatings = payload["userRatingCount"] as? Int
-        imageURLString = payload["artworkUrl60"] as? String
+        imageURLString = payload["artworkUrl100"] as? String
         urlString = payload["trackViewUrl"] as? String
     }
 }

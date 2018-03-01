@@ -51,7 +51,7 @@ public final class LionheartOtherAppsViewController: BaseTableViewController {
 
         activity.hidesWhenStopped = true
 
-        tableView.registerClass(QuickTableViewCellSubtitle.self)
+        tableView.registerClass(AppTableViewCell.self)
     }
 
     override public func viewWillAppear(_ animated: Bool) {
@@ -107,7 +107,7 @@ extension LionheartOtherAppsViewController: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath) as QuickTableViewCellSubtitle
+        let cell = tableView.dequeueReusableCell(for: indexPath) as AppTableViewCell
 
         guard apps.count > 0 else {
             cell.textLabel?.text = "Loading"
@@ -118,7 +118,6 @@ extension LionheartOtherAppsViewController: UITableViewDataSource {
         let app = apps[indexPath.row]
         cell.textLabel?.text = app.name
         cell.detailTextLabel?.text = app.detailText
-        cell.accessoryView = nil
         cell.imageView?.sd_setImage(with: app.imageURL, placeholderImage: placeholder)
         return cell
     }
