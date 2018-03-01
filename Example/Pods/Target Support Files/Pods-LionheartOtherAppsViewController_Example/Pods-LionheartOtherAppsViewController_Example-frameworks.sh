@@ -138,12 +138,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/LionheartOtherAppsViewController/LionheartOtherAppsViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QuickTableView/QuickTableView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SuperLayout/SuperLayout.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/KeyboardAdjuster/KeyboardAdjuster.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LionheartOtherAppsViewController/LionheartOtherAppsViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QuickTableView/QuickTableView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SuperLayout/SuperLayout.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
