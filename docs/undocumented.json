@@ -1,0 +1,68 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
+      "line": null,
+      "symbol": "LionheartOtherAppsViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
+      "line": null,
+      "symbol": "LionheartOtherAppsViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
+      "line": 23,
+      "symbol": "LionheartOtherAppsViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
+      "line": 40,
+      "symbol": "LionheartOtherAppsViewController.init(developerID:affiliateCode:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
+      "line": 47,
+      "symbol": "LionheartOtherAppsViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
+      "line": 57,
+      "symbol": "LionheartOtherAppsViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
+      "line": 85,
+      "symbol": "LionheartOtherAppsViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
+      "line": 101,
+      "symbol": "LionheartOtherAppsViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
+      "line": 109,
+      "symbol": "LionheartOtherAppsViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/dan/Projects/LionheartOtherAppsViewController"
+}
