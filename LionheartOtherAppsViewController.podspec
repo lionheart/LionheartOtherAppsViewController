@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LionheartOtherAppsViewController'
-  s.version          =  "1.1.1"
+  s.version          =  "1.1.2"
   s.summary          = 'A table view controller used to showcase your other apps.'
   s.homepage         = 'https://github.com/lionheart/LionheartOtherAppsViewController'
   s.license          = { :type => 'Apache 2.0', :file => 'LICENSE' }
