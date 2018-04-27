@@ -65,7 +65,7 @@ public final class LionheartOtherAppsViewController: BaseTableViewController {
                 return
             }
 
-            self.apps = results.flatMap({ App(payload: $0, affiliateCode: self.affiliateCode) }).sorted {
+            self.apps = results.compactMap({ App(payload: $0, affiliateCode: self.affiliateCode) }).sorted {
                 $0.name < $1.name
             }
 
