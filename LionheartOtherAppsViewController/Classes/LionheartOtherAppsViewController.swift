@@ -16,9 +16,6 @@
 //
 
 import QuickTableView
-import SDWebImage
-
-
 
 public final class LionheartOtherAppsViewController: BaseTableViewController {
     var developerID = 0
@@ -27,6 +24,7 @@ public final class LionheartOtherAppsViewController: BaseTableViewController {
         return URL(string: "https://itunes.apple.com/lookup?id=\(developerID)&entity=software")!
     }
     fileprivate var apps: [App] = []
+    var imageCache: [URL: UIImage] = [:]
 
     let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
@@ -118,7 +116,29 @@ extension LionheartOtherAppsViewController: UITableViewDataSource {
         let app = apps[indexPath.row]
         cell.textLabel?.text = app.name
         cell.detailTextLabel?.text = app.detailText
-        cell.imageView?.sd_setImage(with: app.imageURL, placeholderImage: placeholder)
+        
+        if let url = app.imageURL {
+            if let image = imageCache[url] {
+                cell.imageView?.image = image
+            } else {
+                cell.imageView?.image = placeholder
+                let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard let data = data else {
+                        return
+                    }
+
+                    let image = UIImage(data: data)
+                    self.imageCache[url] = image
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.beginUpdates()
+                        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                        self.tableView.endUpdates()
+                    }
+                }
+                task.resume()
+            }
+        }
         return cell
     }
 }

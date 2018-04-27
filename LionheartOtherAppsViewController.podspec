@@ -15,8 +15,7 @@ Pod::Spec.new do |s|
   s.source_files = 'LionheartOtherAppsViewController/Classes/**/*'
 
   s.dependency 'QuickTableView', '~> 2.6'
-  s.dependency 'SDWebImage'
   s.dependency 'SuperLayout'
 
-  s.swift_version = "4.0"
+  s.swift_version = "4.1"
 end
