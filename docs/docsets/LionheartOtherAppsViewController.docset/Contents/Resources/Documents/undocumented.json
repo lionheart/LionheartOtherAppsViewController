@@ -16,49 +16,49 @@
     },
     {
       "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
-      "line": 20,
+      "line": 23,
       "symbol": "LionheartOtherAppsViewController",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
-      "line": 38,
+      "line": 40,
       "symbol": "LionheartOtherAppsViewController.init(developerID:affiliateCode:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
-      "line": 45,
+      "line": 47,
       "symbol": "LionheartOtherAppsViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
-      "line": 55,
+      "line": 57,
       "symbol": "LionheartOtherAppsViewController.viewWillAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
-      "line": 83,
+      "line": 85,
       "symbol": "LionheartOtherAppsViewController.tableView(_:didSelectRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
-      "line": 99,
+      "line": 101,
       "symbol": "LionheartOtherAppsViewController.tableView(_:numberOfRowsInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/dan/Projects/LionheartOtherAppsViewController/LionheartOtherAppsViewController/Classes/LionheartOtherAppsViewController.swift",
-      "line": 107,
+      "line": 109,
       "symbol": "LionheartOtherAppsViewController.tableView(_:cellForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
