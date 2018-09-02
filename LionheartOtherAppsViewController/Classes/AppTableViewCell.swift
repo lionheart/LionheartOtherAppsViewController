@@ -39,6 +39,7 @@ final class AppTableViewCell: UITableViewCell {
         theDetailTextLabel.textAlignment = .left
         
         theImageView = UIImageView()
+        theImageView.translatesAutoresizingMaskIntoConstraints = false
         theImageView.contentMode = .scaleAspectFit
         theImageView.layer.cornerRadius = 8
         theImageView.clipsToBounds = true
@@ -66,8 +67,6 @@ final class AppTableViewCell: UITableViewCell {
         let constraint = horizontalStackView.bottomAnchor.constraint(lessThanOrEqualTo: margins.bottomAnchor)
         constraint.priority = .defaultHigh
         constraint.isActive = true
-
-        horizontalStackView.heightAnchor ~~ 44
         
         updateConstraintsIfNeeded()
     }
