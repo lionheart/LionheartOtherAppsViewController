@@ -43,7 +43,7 @@ struct App {
         let starRating = NSDecimalNumber(decimal: rating)
         
         for i in 0..<5 {
-            if starRating.intValue - i > 0 {
+            if starRating.floatValue - Float(i) > -0.5 {
                 value += "★"
             } else {
                 value += ""
