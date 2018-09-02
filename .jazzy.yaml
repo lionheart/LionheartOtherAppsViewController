@@ -1,7 +1,7 @@
 author: "Lionheart Software"
 author_url: "https://lionheartsw.com"
 github_url: "https://github.com/lionheart/LionheartOtherAppsViewController"
-github_file_prefix: "https://github.com/lionheart/LionheartOtherAppsViewController/tree/1.2.1"
+github_file_prefix: "https://github.com/lionheart/LionheartOtherAppsViewController/tree/1.2.2"
 xcodebuild_arguments: ["-workspace", "Example/LionheartOtherAppsViewController.xcworkspace", "-scheme", "LionheartOtherAppsViewController"]
 readme: "README.md"
 copyright: "&copy; 2016-2017 Lionheart Software LLC"
