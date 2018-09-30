@@ -13,7 +13,7 @@ import LionheartOtherAppsViewController
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let controller = LionheartOtherAppsViewController(developerID: 548052593, affiliateCode: "1l3vbEC")
         let navigation = UINavigationController(rootViewController: controller)
         let _window = UIWindow(frame: UIScreen.main.bounds)
