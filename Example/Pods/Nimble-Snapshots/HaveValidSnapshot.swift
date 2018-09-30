@@ -37,13 +37,15 @@ extension UIView : Snapshotable {
     class func compareSnapshot(_ instance: Snapshotable, isDeviceAgnostic: Bool = false,
                                usesDrawRect: Bool = false, snapshot: String, record: Bool,
                                referenceDirectory: String, tolerance: CGFloat,
-                               filename: String) -> Bool {
+                               filename: String, identifier: String? = nil) -> Bool {
 
         let testName = parseFilename(filename: filename)
-        let snapshotController: FBSnapshotTestController = FBSnapshotTestController(testName: testName)
+        let snapshotController: FBSnapshotTestController = FBSnapshotTestController(test: self)
+        snapshotController.folderName = testName
         snapshotController.isDeviceAgnostic = isDeviceAgnostic
         snapshotController.recordMode = record
         snapshotController.referenceImagesDirectory = referenceDirectory
+        snapshotController.imageDiffDirectory = NSTemporaryDirectory()
         snapshotController.usesDrawViewHierarchyInRect = usesDrawRect
 
         let reason = "Missing value for referenceImagesDirectory - " +
@@ -51,12 +53,32 @@ extension UIView : Snapshotable {
         assert(snapshotController.referenceImagesDirectory != nil, reason)
 
         do {
-            try snapshotController.compareSnapshot(ofViewOrLayer: instance.snapshotObject,
-                                                   selector: Selector(snapshot), identifier: nil, tolerance: tolerance)
-        } catch {
+            try snapshotController.compareSnapshot(ofViewOrLayer: instance.snapshotObject!,
+                                                 selector: Selector(snapshot), identifier: identifier, tolerance: tolerance)
+            let image = try snapshotController.referenceImage(for: Selector(snapshot), identifier: identifier)
+            attach(image: image, named: "Reference_\(snapshot)")
+        } catch let error {
+            let info = (error as NSError).userInfo
+            if let ref = info[FBReferenceImageKey] as? UIImage {
+                attach(image: ref, named: "Reference_\(snapshot)")
+            }
+            if let captured = info[FBCapturedImageKey] as? UIImage {
+                attach(image: captured, named: "Captured_\(snapshot)")
+            }
+            if let diff = info[FBDiffedImageKey] as? UIImage {
+                attach(image: diff, named: "Diffed_\(snapshot)")
+            }
             return false
         }
         return true
+    }
+
+    private static func attach(image: UIImage, named name: String) {
+        XCTContext.runActivity(named: name, block: { activity in
+            let attachment = XCTAttachment(image: image)
+            attachment.name = name
+            activity.add(attachment)
+        })
     }
 }
 
@@ -75,6 +97,10 @@ func getDefaultReferenceDirectory(_ sourceFileName: String) -> String {
     if let globalReference = FBSnapshotTest.sharedInstance.referenceImagesDirectory {
         return globalReference
     }
+    
+    if let environmentReference = ProcessInfo.processInfo.environment["FB_REFERENCE_IMAGE_DIR"] {
+        return environmentReference
+    }
 
     // Search the test file's path to find the first folder with a test suffix,
     // then append "/ReferenceImages" and use that.
@@ -91,7 +117,8 @@ func getDefaultReferenceDirectory(_ sourceFileName: String) -> String {
 
     guard let testDirectory = testPath else {
         fatalError("Could not infer reference image folder – You should provide a reference dir using " +
-                   "FBSnapshotTest.setReferenceImagesDirectory(FB_REFERENCE_IMAGE_DIR)")
+                   "FBSnapshotTest.setReferenceImagesDirectory(FB_REFERENCE_IMAGE_DIR) " +
+                   "or by setting the FB_REFERENCE_IMAGE_DIR environment variable")
     }
 
     // Recombine the path components and append our own image directory.
@@ -134,7 +161,7 @@ func clearFailureMessage(_ failureMessage: FailureMessage) {
     failureMessage.to = ""
 }
 
-private func performSnapshotTest(_ name: String?, isDeviceAgnostic: Bool = false, usesDrawRect: Bool = false,
+private func performSnapshotTest(_ name: String?, identifier: String? = nil, isDeviceAgnostic: Bool = false, usesDrawRect: Bool = false,
                                  actualExpression: Expression<Snapshotable>, failureMessage: FailureMessage,
                                  tolerance: CGFloat?) -> Bool {
     // swiftlint:disable:next force_try force_unwrapping
@@ -147,7 +174,7 @@ private func performSnapshotTest(_ name: String?, isDeviceAgnostic: Bool = false
     let result = FBSnapshotTest.compareSnapshot(instance, isDeviceAgnostic: isDeviceAgnostic,
                                                 usesDrawRect: usesDrawRect, snapshot: snapshotName, record: false,
                                                 referenceDirectory: referenceImageDirectory, tolerance: tolerance,
-                                                filename: actualExpression.location.file)
+                                                filename: actualExpression.location.file, identifier: identifier)
 
     if !result {
         clearFailureMessage(failureMessage)
@@ -157,7 +184,7 @@ private func performSnapshotTest(_ name: String?, isDeviceAgnostic: Bool = false
     return result
 }
 
-private func recordSnapshot(_ name: String?, isDeviceAgnostic: Bool = false, usesDrawRect: Bool = false,
+private func recordSnapshot(_ name: String?, identifier: String? = nil, isDeviceAgnostic: Bool = false, usesDrawRect: Bool = false,
                             actualExpression: Expression<Snapshotable>, failureMessage: FailureMessage) -> Bool {
     // swiftlint:disable:next force_try force_unwrapping
     let instance = try! actualExpression.evaluate()!
@@ -170,7 +197,7 @@ private func recordSnapshot(_ name: String?, isDeviceAgnostic: Bool = false, use
 
     if FBSnapshotTest.compareSnapshot(instance, isDeviceAgnostic: isDeviceAgnostic, usesDrawRect: usesDrawRect,
                                       snapshot: snapshotName, record: true, referenceDirectory: referenceImageDirectory,
-                                      tolerance: tolerance, filename: actualExpression.location.file) {
+                                      tolerance: tolerance, filename: actualExpression.location.file, identifier: identifier) {
         let name = name ?? snapshotName
         failureMessage.expected = "snapshot \(name) successfully recorded, replace recordSnapshot with a check"
     } else {
@@ -192,48 +219,48 @@ private func currentTestName() -> String? {
 
 internal var switchChecksWithRecords = false
 
-public func haveValidSnapshot(named name: String? = nil, usesDrawRect: Bool = false,
+public func haveValidSnapshot(named name: String? = nil, identifier: String? = nil, usesDrawRect: Bool = false,
                               tolerance: CGFloat? = nil) -> Predicate<Snapshotable> {
 
     return Predicate.fromDeprecatedClosure { actualExpression, failureMessage in
         if switchChecksWithRecords {
-            return recordSnapshot(name, usesDrawRect: usesDrawRect, actualExpression: actualExpression,
+            return recordSnapshot(name, identifier: identifier, usesDrawRect: usesDrawRect, actualExpression: actualExpression,
                                   failureMessage: failureMessage)
         }
 
-        return performSnapshotTest(name, usesDrawRect: usesDrawRect, actualExpression: actualExpression,
+        return performSnapshotTest(name, identifier: identifier, usesDrawRect: usesDrawRect, actualExpression: actualExpression,
                                    failureMessage: failureMessage, tolerance: tolerance)
     }
 }
 
-public func haveValidDeviceAgnosticSnapshot(named name: String? = nil, usesDrawRect: Bool = false,
+public func haveValidDeviceAgnosticSnapshot(named name: String? = nil, identifier: String? = nil, usesDrawRect: Bool = false,
                                             tolerance: CGFloat? = nil) -> Predicate<Snapshotable> {
 
     return Predicate.fromDeprecatedClosure { actualExpression, failureMessage in
         if switchChecksWithRecords {
-            return recordSnapshot(name, isDeviceAgnostic: true, usesDrawRect: usesDrawRect,
+            return recordSnapshot(name, identifier: identifier, isDeviceAgnostic: true, usesDrawRect: usesDrawRect,
                                   actualExpression: actualExpression, failureMessage: failureMessage)
         }
 
-        return performSnapshotTest(name, isDeviceAgnostic: true, usesDrawRect: usesDrawRect,
+        return performSnapshotTest(name, identifier: identifier, isDeviceAgnostic: true, usesDrawRect: usesDrawRect,
                                    actualExpression: actualExpression,
                                    failureMessage: failureMessage, tolerance: tolerance)
     }
 }
 
-public func recordSnapshot(named name: String? = nil, usesDrawRect: Bool = false) -> Predicate<Snapshotable> {
+public func recordSnapshot(named name: String? = nil, identifier: String? = nil, usesDrawRect: Bool = false) -> Predicate<Snapshotable> {
 
     return Predicate.fromDeprecatedClosure { actualExpression, failureMessage in
-        return recordSnapshot(name, usesDrawRect: usesDrawRect,
+        return recordSnapshot(name, identifier: identifier, usesDrawRect: usesDrawRect,
                               actualExpression: actualExpression, failureMessage: failureMessage)
     }
 }
 
-public func recordDeviceAgnosticSnapshot(named name: String? = nil,
+public func recordDeviceAgnosticSnapshot(named name: String? = nil, identifier: String? = nil,
                                          usesDrawRect: Bool = false) -> Predicate<Snapshotable> {
 
     return Predicate.fromDeprecatedClosure { actualExpression, failureMessage in
-        return recordSnapshot(name, isDeviceAgnostic: true, usesDrawRect: usesDrawRect,
+        return recordSnapshot(name, identifier: identifier, isDeviceAgnostic: true, usesDrawRect: usesDrawRect,
                               actualExpression: actualExpression, failureMessage: failureMessage)
     }
 }
