@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LionheartOtherAppsViewController'
-  s.version          =  "1.2.2"
+  s.version          =  "2.0.0"
   s.summary          = 'A table view controller used to showcase your other apps.'
   s.homepage         = 'https://github.com/lionheart/LionheartOtherAppsViewController'
   s.license          = { :type => 'Apache 2.0', :file => 'LICENSE' }
@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
 
   s.source_files = 'LionheartOtherAppsViewController/Classes/**/*'
 
-  s.dependency 'QuickTableView', '~> 2.6'
-  s.dependency 'SuperLayout'
+  s.dependency 'QuickTableView', '~> 3.0'
+  s.dependency 'SuperLayout', '~> 2.0'
 
-  s.swift_version = "4.1"
+  s.swift_version = "4.2"
 end
