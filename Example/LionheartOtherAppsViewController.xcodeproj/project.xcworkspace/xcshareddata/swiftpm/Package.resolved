@@ -1,33 +1,6 @@
 {
-  "originHash" : "2bf4334ea0d5d6b33894463d8908b74f1e6ac5d9b3ea078f680af4dcf965f0d0",
+  "originHash" : "634313753af0344f9cbd0e0c0ebc41817230dcecfc1d81c9834c45be387fa432",
   "pins" : [
-    {
-      "identity" : "cwlcatchexception",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mattgallagher/CwlCatchException.git",
-      "state" : {
-        "revision" : "07b2ba21d361c223e25e3c1e924288742923f08c",
-        "version" : "2.2.1"
-      }
-    },
-    {
-      "identity" : "cwlpreconditiontesting",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
-      "state" : {
-        "revision" : "0139c665ebb45e6a9fbdb68aabfd7c39f3fe0071",
-        "version" : "2.2.2"
-      }
-    },
-    {
-      "identity" : "ios-snapshot-test-case",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/uber/ios-snapshot-test-case.git",
-      "state" : {
-        "revision" : "7b10770333a961be6e5a41c9ce04b8c6d3990126",
-        "version" : "8.0.0"
-      }
-    },
     {
       "identity" : "keyboardadjuster",
       "kind" : "remoteSourceControl",
@@ -35,24 +8,6 @@
       "state" : {
         "revision" : "937eca07b8e3c7d578dc42469485f8cc5068f11a",
         "version" : "6.0.0"
-      }
-    },
-    {
-      "identity" : "nimble",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Quick/Nimble.git",
-      "state" : {
-        "revision" : "f3bedd7c2a858f4513e7d004def200a69238db2f",
-        "version" : "13.6.2"
-      }
-    },
-    {
-      "identity" : "nimble-snapshots",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ashfurrow/Nimble-Snapshots",
-      "state" : {
-        "revision" : "6aba4acd318d2aae8158b5f8829a4329d023ce54",
-        "version" : "9.8.0"
       }
     },
     {

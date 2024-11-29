@@ -8,15 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		37ACCA552CFA6B7D00A6AE62 /* LionheartOtherAppsViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 37ACCA542CFA6B7D00A6AE62 /* LionheartOtherAppsViewController */; };
-		37C6C91C2CFA6DA6007CF4B0 /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = 37C6C91B2CFA6DA6007CF4B0 /* iOSSnapshotTestCase */; };
-		37C6C91F2CFA6E11007CF4B0 /* Nimble-Snapshots in Frameworks */ = {isa = PBXBuildFile; productRef = 37C6C91E2CFA6E11007CF4B0 /* Nimble-Snapshots */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		C077D0E63E4D5911845787B1 /* Pods_LionheartOtherAppsViewController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79003692E048BD1F152BACD /* Pods_LionheartOtherAppsViewController_Example.framework */; };
-		E0A5D79ADADD2CBCBE14723D /* Pods_LionheartOtherAppsViewController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BEC9FF061CF13A2CCF8CEC9 /* Pods_LionheartOtherAppsViewController_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,9 +25,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07A54A08D1BB5C2FF437B532 /* LionheartOtherAppsViewController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LionheartOtherAppsViewController.podspec; path = ../LionheartOtherAppsViewController.podspec; sourceTree = "<group>"; };
-		2BEC9FF061CF13A2CCF8CEC9 /* Pods_LionheartOtherAppsViewController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LionheartOtherAppsViewController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F195B2A204EA49BEE053F65 /* Pods-LionheartOtherAppsViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LionheartOtherAppsViewController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LionheartOtherAppsViewController_Example/Pods-LionheartOtherAppsViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LionheartOtherAppsViewController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionheartOtherAppsViewController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,14 +32,6 @@
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* LionheartOtherAppsViewController_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LionheartOtherAppsViewController_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6B003F22FF0DA8FB5B436BE0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		6C775A1F409540E3AB280F68 /* Pods-LionheartOtherAppsViewController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LionheartOtherAppsViewController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LionheartOtherAppsViewController_Example/Pods-LionheartOtherAppsViewController_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		8F9F390BB72135D706A2F876 /* Pods-LionheartOtherAppsViewController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LionheartOtherAppsViewController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LionheartOtherAppsViewController_Tests/Pods-LionheartOtherAppsViewController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		A8D6C820E4DB36D82AA9BE7A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		BE447F517E7CC4B88AE1753E /* Pods-LionheartOtherAppsViewController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LionheartOtherAppsViewController_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LionheartOtherAppsViewController_Tests/Pods-LionheartOtherAppsViewController_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C79003692E048BD1F152BACD /* Pods_LionheartOtherAppsViewController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LionheartOtherAppsViewController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +40,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				37ACCA552CFA6B7D00A6AE62 /* LionheartOtherAppsViewController in Frameworks */,
-				37C6C91C2CFA6DA6007CF4B0 /* iOSSnapshotTestCase in Frameworks */,
-				C077D0E63E4D5911845787B1 /* Pods_LionheartOtherAppsViewController_Example.framework in Frameworks */,
-				37C6C91F2CFA6E11007CF4B0 /* Nimble-Snapshots in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,31 +47,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0A5D79ADADD2CBCBE14723D /* Pods_LionheartOtherAppsViewController_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		36A1E4A52358B3FD4FBC0BEF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C79003692E048BD1F152BACD /* Pods_LionheartOtherAppsViewController_Example.framework */,
-				2BEC9FF061CF13A2CCF8CEC9 /* Pods_LionheartOtherAppsViewController_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for LionheartOtherAppsViewController */,
-				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				64B186C5DC6BEC3CE748607A /* Pods */,
-				36A1E4A52358B3FD4FBC0BEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,44 +91,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				07A54A08D1BB5C2FF437B532 /* LionheartOtherAppsViewController.podspec */,
-				A8D6C820E4DB36D82AA9BE7A /* README.md */,
-				6B003F22FF0DA8FB5B436BE0 /* LICENSE */,
-			);
-			name = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
-		64B186C5DC6BEC3CE748607A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6C775A1F409540E3AB280F68 /* Pods-LionheartOtherAppsViewController_Example.debug.xcconfig */,
-				5F195B2A204EA49BEE053F65 /* Pods-LionheartOtherAppsViewController_Example.release.xcconfig */,
-				8F9F390BB72135D706A2F876 /* Pods-LionheartOtherAppsViewController_Tests.debug.xcconfig */,
-				BE447F517E7CC4B88AE1753E /* Pods-LionheartOtherAppsViewController_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,11 +98,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LionheartOtherAppsViewController_Example" */;
 			buildPhases = (
-				1B44DD9CFFFC6A7FD0973236 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				AE5A93BC26049BF07D430EB7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,7 +115,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LionheartOtherAppsViewController_Tests" */;
 			buildPhases = (
-				8ADCCD9524336B0CFF2F75C3 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -239,9 +165,7 @@
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
-				37ACCA532CFA6B7D00A6AE62 /* XCLocalSwiftPackageReference "lionheartotherappsviewcontroller" */,
-				37C6C91A2CFA6DA6007CF4B0 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */,
-				37C6C91D2CFA6E11007CF4B0 /* XCRemoteSwiftPackageReference "Nimble-Snapshots" */,
+				37ACCA532CFA6B7D00A6AE62 /* XCLocalSwiftPackageReference "../../lionheartotherappsviewcontroller" */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
@@ -272,73 +196,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1B44DD9CFFFC6A7FD0973236 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LionheartOtherAppsViewController_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8ADCCD9524336B0CFF2F75C3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LionheartOtherAppsViewController_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AE5A93BC26049BF07D430EB7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LionheartOtherAppsViewController_Example/Pods-LionheartOtherAppsViewController_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/KeyboardAdjuster/KeyboardAdjuster.framework",
-				"${BUILT_PRODUCTS_DIR}/LionheartOtherAppsViewController/LionheartOtherAppsViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/QuickTableView/QuickTableView.framework",
-				"${BUILT_PRODUCTS_DIR}/SuperLayout/SuperLayout.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyboardAdjuster.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LionheartOtherAppsViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickTableView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SuperLayout.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LionheartOtherAppsViewController_Example/Pods-LionheartOtherAppsViewController_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -353,7 +210,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +349,6 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C775A1F409540E3AB280F68 /* Pods-LionheartOtherAppsViewController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 63553QQ62F;
@@ -512,7 +367,6 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F195B2A204EA49BEE053F65 /* Pods-LionheartOtherAppsViewController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 63553QQ62F;
@@ -531,7 +385,6 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F9F390BB72135D706A2F876 /* Pods-LionheartOtherAppsViewController_Tests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 63553QQ62F;
@@ -559,7 +412,6 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE447F517E7CC4B88AE1753E /* Pods-LionheartOtherAppsViewController_Tests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 63553QQ62F;
@@ -614,45 +466,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		37ACCA532CFA6B7D00A6AE62 /* XCLocalSwiftPackageReference "lionheartotherappsviewcontroller" */ = {
+		37ACCA532CFA6B7D00A6AE62 /* XCLocalSwiftPackageReference "../../lionheartotherappsviewcontroller" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../lionheartotherappsviewcontroller;
 		};
 /* End XCLocalSwiftPackageReference section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		37C6C91A2CFA6DA6007CF4B0 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/uber/ios-snapshot-test-case.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
-		37C6C91D2CFA6E11007CF4B0 /* XCRemoteSwiftPackageReference "Nimble-Snapshots" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ashfurrow/Nimble-Snapshots";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.8.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		37ACCA542CFA6B7D00A6AE62 /* LionheartOtherAppsViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LionheartOtherAppsViewController;
-		};
-		37C6C91B2CFA6DA6007CF4B0 /* iOSSnapshotTestCase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 37C6C91A2CFA6DA6007CF4B0 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
-			productName = iOSSnapshotTestCase;
-		};
-		37C6C91E2CFA6E11007CF4B0 /* Nimble-Snapshots */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 37C6C91D2CFA6E11007CF4B0 /* XCRemoteSwiftPackageReference "Nimble-Snapshots" */;
-			productName = "Nimble-Snapshots";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
