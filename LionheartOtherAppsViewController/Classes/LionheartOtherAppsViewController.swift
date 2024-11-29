@@ -16,6 +16,7 @@
 //
 
 import QuickTableView
+import UIKit
 
 public final class LionheartOtherAppsViewController: BaseTableViewController {
     var developerID = 0

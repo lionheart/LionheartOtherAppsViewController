@@ -10,16 +10,15 @@ PODS:
   - iOSSnapshotTestCase/SwiftSupport (4.0.0):
     - iOSSnapshotTestCase/Core
   - KeyboardAdjuster (4.0.0)
-  - LionheartOtherAppsViewController (1.2.2):
+  - LionheartOtherAppsViewController (2.0.0):
     - QuickTableView (~> 3.0)
     - SuperLayout (~> 2.0)
-  - Nimble (7.3.1)
+  - Nimble (7.3.4)
   - Nimble-Snapshots (6.8.1):
     - Nimble-Snapshots/Core (= 6.8.1)
   - Nimble-Snapshots/Core (6.8.1):
     - iOSSnapshotTestCase (~> 4.0)
     - Nimble (~> 7.0)
-  - Quick (1.3.2)
   - QuickTableView (3.0.0):
     - KeyboardAdjuster (~> 4)
   - SuperLayout (2.0.0):
@@ -29,18 +28,15 @@ PODS:
 DEPENDENCIES:
   - FBSnapshotTestCase
   - LionheartOtherAppsViewController (from `../`)
-  - Nimble (~> 7)
   - Nimble-Snapshots
-  - Quick (~> 1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - FBSnapshotTestCase
     - iOSSnapshotTestCase
     - KeyboardAdjuster
     - Nimble
     - Nimble-Snapshots
-    - Quick
     - QuickTableView
     - SuperLayout
 
@@ -52,13 +48,12 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   iOSSnapshotTestCase: 711379b19f69a22c131527df862352c877c2773c
   KeyboardAdjuster: 50eec4e8d52fd5d7f5df74fc07193cdadcc88abb
-  LionheartOtherAppsViewController: 06a76fe595144434b3fe0b7dbcf528e456198e28
-  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  LionheartOtherAppsViewController: e025cff3a2a9ef67dacfee8af37b81190cc6a72a
+  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
   Nimble-Snapshots: 65bce321fa2f62d70909b90a66a825a3cc4ae773
-  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
   QuickTableView: 296b258f41ac91521ae517404646da4beab73fa3
   SuperLayout: 0208ad821522fb50b62d9b8b808690d190a871ea
 
-PODFILE CHECKSUM: 4a523cf3631a8c874606964e9af6815393e5bfa0
+PODFILE CHECKSUM: 4e879199f408a474c0fa17207d146dea04025d8a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.16.2

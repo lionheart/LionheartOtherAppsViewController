@@ -77,6 +77,6 @@ final class AppTableViewCell: UITableViewCell {
     }
 }
 
-extension AppTableViewCell: QuickTableViewCellIdentifiable {
+extension AppTableViewCell: @preconcurrency QuickTableViewCellIdentifiable {
     static var identifier: String { return "PriceBreakdownTableViewCellIdentifier" }
 }

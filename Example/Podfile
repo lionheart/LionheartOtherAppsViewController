@@ -1,4 +1,4 @@
-platform :ios, '10.3'
+platform :ios, '15'
 
 use_frameworks!
 
@@ -8,8 +8,6 @@ target 'LionheartOtherAppsViewController_Example' do
   target 'LionheartOtherAppsViewController_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 1'
-    pod 'Nimble', '~> 7'
     pod 'FBSnapshotTestCase'
     pod 'Nimble-Snapshots'
   end
