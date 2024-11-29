@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		37ACCA552CFA6B7D00A6AE62 /* LionheartOtherAppsViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 37ACCA542CFA6B7D00A6AE62 /* LionheartOtherAppsViewController */; };
+		37C6C91C2CFA6DA6007CF4B0 /* iOSSnapshotTestCase in Frameworks */ = {isa = PBXBuildFile; productRef = 37C6C91B2CFA6DA6007CF4B0 /* iOSSnapshotTestCase */; };
+		37C6C91F2CFA6E11007CF4B0 /* Nimble-Snapshots in Frameworks */ = {isa = PBXBuildFile; productRef = 37C6C91E2CFA6E11007CF4B0 /* Nimble-Snapshots */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -54,7 +56,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				37ACCA552CFA6B7D00A6AE62 /* LionheartOtherAppsViewController in Frameworks */,
+				37C6C91C2CFA6DA6007CF4B0 /* iOSSnapshotTestCase in Frameworks */,
 				C077D0E63E4D5911845787B1 /* Pods_LionheartOtherAppsViewController_Example.framework in Frameworks */,
+				37C6C91F2CFA6E11007CF4B0 /* Nimble-Snapshots in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,11 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LionheartOtherAppsViewController_Example" */;
 			buildPhases = (
-				DF15000D161E36189FBE2770 /* [CP] Check Pods Manifest.lock */,
+				1B44DD9CFFFC6A7FD0973236 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				BC63DF7F2C06BAF2893F1554 /* [CP] Embed Pods Frameworks */,
+				AE5A93BC26049BF07D430EB7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,7 +192,6 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				3ACB527D0B2E8C5BF21F9512 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,7 +239,9 @@
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
-				37ACCA532CFA6B7D00A6AE62 /* XCLocalSwiftPackageReference "../../lionheartotherappsviewcontroller" */,
+				37ACCA532CFA6B7D00A6AE62 /* XCLocalSwiftPackageReference "lionheartotherappsviewcontroller" */,
+				37C6C91A2CFA6DA6007CF4B0 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */,
+				37C6C91D2CFA6E11007CF4B0 /* XCRemoteSwiftPackageReference "Nimble-Snapshots" */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
@@ -268,27 +273,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3ACB527D0B2E8C5BF21F9512 /* [CP] Embed Pods Frameworks */ = {
+		1B44DD9CFFFC6A7FD0973236 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LionheartOtherAppsViewController_Tests/Pods-LionheartOtherAppsViewController_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble_Snapshots.framework",
+				"$(DERIVED_FILE_DIR)/Pods-LionheartOtherAppsViewController_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LionheartOtherAppsViewController_Tests/Pods-LionheartOtherAppsViewController_Tests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8ADCCD9524336B0CFF2F75C3 /* [CP] Check Pods Manifest.lock */ = {
@@ -309,7 +313,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BC63DF7F2C06BAF2893F1554 /* [CP] Embed Pods Frameworks */ = {
+		AE5A93BC26049BF07D430EB7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -331,24 +335,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LionheartOtherAppsViewController_Example/Pods-LionheartOtherAppsViewController_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DF15000D161E36189FBE2770 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LionheartOtherAppsViewController_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -628,16 +614,45 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		37ACCA532CFA6B7D00A6AE62 /* XCLocalSwiftPackageReference "../../lionheartotherappsviewcontroller" */ = {
+		37ACCA532CFA6B7D00A6AE62 /* XCLocalSwiftPackageReference "lionheartotherappsviewcontroller" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../lionheartotherappsviewcontroller;
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		37C6C91A2CFA6DA6007CF4B0 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uber/ios-snapshot-test-case.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		37C6C91D2CFA6E11007CF4B0 /* XCRemoteSwiftPackageReference "Nimble-Snapshots" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashfurrow/Nimble-Snapshots";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		37ACCA542CFA6B7D00A6AE62 /* LionheartOtherAppsViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LionheartOtherAppsViewController;
+		};
+		37C6C91B2CFA6DA6007CF4B0 /* iOSSnapshotTestCase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37C6C91A2CFA6DA6007CF4B0 /* XCRemoteSwiftPackageReference "ios-snapshot-test-case" */;
+			productName = iOSSnapshotTestCase;
+		};
+		37C6C91E2CFA6E11007CF4B0 /* Nimble-Snapshots */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37C6C91D2CFA6E11007CF4B0 /* XCRemoteSwiftPackageReference "Nimble-Snapshots" */;
+			productName = "Nimble-Snapshots";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,6 +1,0 @@
-framework module LionheartOtherAppsViewController {
-  umbrella header "LionheartOtherAppsViewController-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -27,7 +27,7 @@ public final class LionheartOtherAppsViewController: BaseTableViewController {
     fileprivate var apps: [App] = []
     var imageCache: [URL: UIImage] = [:]
 
-    let activity = UIActivityIndicatorView(style: .gray)
+    let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
     lazy var placeholder: UIImage? = {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 44, height: 44), false, 1.0)
@@ -88,11 +88,7 @@ extension LionheartOtherAppsViewController: UITableViewDelegate {
             return
         }
 
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 
@@ -142,9 +138,4 @@ extension LionheartOtherAppsViewController: UITableViewDataSource {
         }
         return cell
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
