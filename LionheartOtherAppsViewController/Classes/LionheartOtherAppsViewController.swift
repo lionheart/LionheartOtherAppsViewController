@@ -38,11 +38,12 @@ public final class LionheartOtherAppsViewController: BaseTableViewController {
         return result
     }()
 
-    @objc public init(developerID: Int, affiliateCode: String? = nil) {
+    @objc public init(developerID: Int, campaignToken: String? = nil, providerToken: String? = nil) {
         super.init(style: .grouped)
 
         self.developerID = developerID
-        self.campaignToken = affiliateCode
+        self.campaignToken = campaignToken
+        self.providerToken = providerToken
     }
 
     override public func viewDidLoad() {
