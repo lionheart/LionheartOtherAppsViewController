@@ -21,7 +21,8 @@ import StoreKit
 
 public final class LionheartOtherAppsViewController: BaseTableViewController {
     var developerID = 0
-    var affiliateCode: String?
+    var campaignToken: String?
+    var providerToken: String?
     var developerURL: URL {
         return URL(string: "https://itunes.apple.com/lookup?id=\(developerID)&entity=software")!
     }
@@ -41,7 +42,7 @@ public final class LionheartOtherAppsViewController: BaseTableViewController {
         super.init(style: .grouped)
 
         self.developerID = developerID
-        self.affiliateCode = affiliateCode
+        self.campaignToken = affiliateCode
     }
 
     override public func viewDidLoad() {
@@ -67,7 +68,7 @@ public final class LionheartOtherAppsViewController: BaseTableViewController {
                 return
             }
 
-            self.apps = results.compactMap({ App(payload: $0, affiliateCode: self.affiliateCode) }).sorted {
+            self.apps = results.compactMap({ App(payload: $0, affiliateCode: self.campaignToken) }).sorted {
                 $0.name < $1.name
             }
 
@@ -91,11 +92,9 @@ extension LionheartOtherAppsViewController: UITableViewDelegate {
             return
         }
     
-      let config = SKOverlay.AppConfiguration(
-        appIdentifier: String(appIdentifier),
-         position: .bottom
-      )
-      config.campaignToken   = affiliateCode
+      let config = SKOverlay.AppConfiguration(appIdentifier: String(appIdentifier), position: .bottom)
+      config.campaignToken = campaignToken
+      config.providerToken = providerToken
       let overlay = SKOverlay(configuration: config)
       overlay.present(in: scene)
     }
