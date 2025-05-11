@@ -17,6 +17,7 @@
 
 import QuickTableView
 import UIKit
+import StoreKit
 
 public final class LionheartOtherAppsViewController: BaseTableViewController {
     var developerID = 0
@@ -84,11 +85,19 @@ extension LionheartOtherAppsViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        guard let url = apps[indexPath.row].url else {
+      let app = apps[indexPath.row]
+      guard let appIdentifier = app.trackId,
+            let scene = view.window?.windowScene else {
             return
         }
-
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    
+      let config = SKOverlay.AppConfiguration(
+        appIdentifier: String(appIdentifier),
+         position: .bottom
+      )
+      config.campaignToken   = affiliateCode
+      let overlay = SKOverlay(configuration: config)
+      overlay.present(in: scene)
     }
 }
 

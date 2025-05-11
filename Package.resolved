@@ -1,0 +1,33 @@
+{
+  "originHash" : "4f7fe4c841d87499d7026026e490f357fe373a4ae6f3bd1ca4ae7b9ca3aa0c75",
+  "pins" : [
+    {
+      "identity" : "keyboardadjuster",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lionheart/KeyboardAdjuster.git",
+      "state" : {
+        "revision" : "937eca07b8e3c7d578dc42469485f8cc5068f11a",
+        "version" : "6.0.0"
+      }
+    },
+    {
+      "identity" : "quicktableview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lionheart/QuickTableView.git",
+      "state" : {
+        "revision" : "243937479439e456bc13e3c8d16ef5b4f2c17ef0",
+        "version" : "5.0.0"
+      }
+    },
+    {
+      "identity" : "superlayout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lionheart/SuperLayout.git",
+      "state" : {
+        "revision" : "c09f7d1e459185345d2d0fce6e606f71ca14269b",
+        "version" : "4.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

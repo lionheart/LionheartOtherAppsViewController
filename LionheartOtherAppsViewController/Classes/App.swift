@@ -13,6 +13,7 @@ struct App {
     var rating: Decimal?
     var numberOfRatings: Int?
     var imageURLString: String?
+    var trackId: Int?
     var imageURL: URL? {
         guard let urlString = imageURLString else {
             return nil
@@ -55,7 +56,8 @@ struct App {
     
     var detailText: String {
         guard let numberOfRatings = numberOfRatings,
-            let starString = starString else {
+            let starString = starString,
+            numberOfRatings > 0 else {
                 return "No reviews"
         }
         
@@ -81,5 +83,6 @@ struct App {
         numberOfRatings = payload["userRatingCount"] as? Int
         imageURLString = payload["artworkUrl100"] as? String
         urlString = payload["trackViewUrl"] as? String
+        trackId = payload["trackId"] as? Int
     }
 }
